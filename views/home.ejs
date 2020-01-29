@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+		
+    <h2>Quiz</h2>
+    <h3>Click the quiz to add more questions</h3>
+
+    <% for (var i =0; i <quiz.length;  i++ ) { %>
+        <a href="quiz/<%=quiz[i]._id%>"><%=quiz[i].quizName%></a>
+        <br>
+      <% } %>
+
+   
+
+  
+           
+
+</body>
+</html>
