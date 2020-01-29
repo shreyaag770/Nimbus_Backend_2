@@ -1,6 +1,5 @@
 var express = require('express'),
     app = express(),
-    PORT = 11000 || process.env.port,
     bodyParser = require('body-parser'),
     mongoose = require('mongoose')
     
@@ -78,7 +77,7 @@ app.get('/quiz/createQuestions/:id',(req,res,next)=>{
     })
 })
 
-app.post('/quiz/createQuestions',(req,res,next)=>{
+app.post('/quiz/createQuestions/:id',(req,res,next)=>{
     Questions.create({
         question:req.body.question,
         option1:req.body.option1,
@@ -91,14 +90,11 @@ app.post('/quiz/createQuestions',(req,res,next)=>{
             question_id: result._id,
             correct:req.body.correct
         }).then(result => {
-            // res.status(200)
             res.redirect('/quiz/createQuestions/quiz_id');
         })
     })
+   
 })
-
-
-
 
 app.get('/createQuiz',(req,res,next)=>{
     res.render('createQuiz');
@@ -112,9 +108,7 @@ app.post('/createQuiz',(req,res,next)=>{
                 department_id:req.user._id
             })
             .then(result => {
-                // // res.status(200).send({id:result._id}); // this is is meant to be sent along with the questions array as 'quiz_id'
-                res.redirect('/home');
-               
+               res.redirect('/home');   
             })
             .catch(err =>{
                 console.log(err);
@@ -123,8 +117,15 @@ app.post('/createQuiz',(req,res,next)=>{
 
 })
 
-app.get('/deleteQuestion/:id',(req,res,next)=>{
-    Questions.remove({ _id: req.body.id })
+app.get('/quiz/deleteQuestion/:id/:quiz_id',(req,res,next)=>{
+    const quiz_id=req.params.quiz_id;
+    Questions.remove({ _id: req.params.id })
+    .then(results => {
+        res.redirect('/quiz/quiz_id')
+    })
+    .catch(err => {
+        console.log(err);
+    })
     
 
 })
