@@ -1,0 +1,20 @@
+app.get('/register',function(req,res){
+	res.render('register');
+});
+
+
+app.post('/register',function(req,res){
+	Dept.register(new Dept({'departmentName':req.body.deptName,'username':req.body.username}),req.body.password,function(err){
+		if(err)
+			console.log(err);
+		else{
+			passport.authenticate("local")(req,res,function()
+			{
+				//if(req.user.role=='student')
+				res.render('questions');
+				//else
+				//	res.render('add');
+			});
+	}}
+	);
+});
