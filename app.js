@@ -88,7 +88,7 @@ app.post('/quiz/createQuestions/:id',(req,res,next)=>{
     }).then(result => {
         Answers.create({
             question_id: result._id,
-            correct:req.body.correct
+            correct:req.body.answer
         }).then(result => {
             res.redirect('/quiz/createQuestions/quiz_id');
         })
