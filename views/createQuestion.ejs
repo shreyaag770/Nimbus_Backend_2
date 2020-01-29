@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Event Manager</title>
+	<link rel="stylesheet" type="text/css" href="/css/loginpage.css">  
+	<style></style>
+</head>
+<body>
+		
+	   <form action="/quiz/createQuestions" method="POST">
+		<h2 style="margin-left: 300px;"><span>Add Questions</span></h2>
+ 
+
+  <div class="container">
+    <label for="name"><b><span>Question</span></b></label>
+    <input type="text" placeholder="Enter Question" name="question" required>
+
+    <label for="option1"><b><span>Option1</span></b></label>
+	<input type="text" placeholder="Enter Option1" name="option1" required>
+	
+	<label for="option2"><b><span>Option2</span></b></label>
+	<input type="text" placeholder="Enter Option2" name="option2" required>
+	
+	<label for="option3"><b><span>Option3</span></b></label>
+	<input type="text" placeholder="Enter Option3" name="option3" required>
+	
+	<label for="option4"><b><span>Option4</span></b></label>
+	<input type="text" placeholder="Enter Option4" name="option4" required>
+	
+	<label for="correct"><b><span>Answer</span></b></label>
+    <input type="text" placeholder="Enter Answer" name="" required>
+        
+    <button type="submit">Submit</button>
+</form>
+		</div>
+</body>
+</html>

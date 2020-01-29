@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+		
+    <h2>Quiz</h2>
+    
+    <% for (var i =0; i <ques.length;  i++ ) { %>
+      <h3><%=ques[i].question%></h3>
+      <a href="deleteQuestion/<%=ques[i]._id%>">Delete</a>
+      <br>
+    <% } %>
+
+    <h3>Click the quiz to add more questions</h3>
+    <a href="createQuestions/<%=id%>">Create Questions</a>
+</body>
+</html>

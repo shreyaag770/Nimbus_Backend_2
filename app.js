@@ -56,31 +56,29 @@ app.get('/home',(req, res,next)=>
 
 app.get('/quiz/:id',(req,res,next)=>
 {
-    const id=req.params.id;
-
-     Question.find({id:quiz._id}, function(err, results){
+    Questions.find({quiz_id:req.params.id}, function(err, results){
         if(err)
             console.log(err);
         else
         {
-            res.render("viewQuiz",
+            res.render("viewQuestions",
             {
-                quiz:results,
-                id:id
+                id:req.params.id,
+                ques:results
             });
             
         }
     });    
+});
 
-})  
 
-app.get('/createQuestions/:id',(req,res,next)=>{
-    res.render("question",{
+app.get('/quiz/createQuestions/:id',(req,res,next)=>{
+    res.render("createQuestion",{
         id:req.params.id
     })
 })
 
-app.post('/createQuestions',(req,res,next)=>{
+app.post('/quiz/createQuestions',(req,res,next)=>{
     Questions.create({
         question:req.body.question,
         option1:req.body.option1,
@@ -93,7 +91,8 @@ app.post('/createQuestions',(req,res,next)=>{
             question_id: result._id,
             correct:req.body.correct
         }).then(result => {
-            res.status(200)
+            // res.status(200)
+            res.redirect('/quiz/createQuestions/quiz_id');
         })
     })
 })
@@ -124,6 +123,11 @@ app.post('/createQuiz',(req,res,next)=>{
 
 })
 
+app.get('/deleteQuestion/:id',(req,res,next)=>{
+    Questions.remove({ _id: req.body.id })
+    
+
+})
 
 //Login Route
 app.get("/login", function(req, res){
