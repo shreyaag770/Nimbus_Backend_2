@@ -10,10 +10,7 @@ app.post('/register',function(req,res){
 		else{
 			passport.authenticate("local")(req,res,function()
 			{
-				//if(req.user.role=='student')
 				res.render('questions');
-				//else
-				//	res.render('add');
 			});
 	}}
 	);

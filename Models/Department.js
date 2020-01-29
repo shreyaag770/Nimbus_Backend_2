@@ -9,6 +9,7 @@ const schema = mongoose.Schema;
 
 const createDepartment = new schema({
     departmentName:String,
+    username:String,
     Password:String
 })
 

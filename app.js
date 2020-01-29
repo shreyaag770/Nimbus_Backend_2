@@ -108,27 +108,55 @@ app.post('/createQuiz',(req,res,next)=>{
                 department_id:req.user._id
             })
             .then(result => {
-               res.redirect('/home');   
+               res.redirect('/viewQuizes');   
             })
             .catch(err =>{
                 console.log(err);
             })
-   
-
 })
 
 app.get('/quiz/deleteQuestion/:id/:quiz_id',(req,res,next)=>{
     const quiz_id=req.params.quiz_id;
     Questions.remove({ _id: req.params.id })
+    .then(results =>  {
+        Quizzes.find({_id:quiz_id}, function(err, results){
+        if(err)
+            console.log(err);
+        else
+        {
+            results[0].questionCount=results[0].questionCount-1;
+           
+        }
+    })  
+    })
     .then(results => {
-        res.redirect('/quiz/quiz_id')
+        console.log(quiz_id);
+         res.redirect('/quiz/'+quiz_id);
     })
     .catch(err => {
         console.log(err);
     })
-    
-
 })
+
+//Register
+app.get('/register',function(req,res){
+	res.render('register');
+});
+
+
+app.post('/register',function(req,res){
+    Departments.register(new Departments({'departmentName':req.body.username,
+    'username':req.body.username}),req.body.password,function(err){
+		if(err)
+			console.log(err);
+		else{
+			passport.authenticate("local")(req,res,function()
+			{
+				res.send("OK");
+			});
+	}}
+	);
+});
 
 //Login Route
 app.get("/login", function(req, res){
