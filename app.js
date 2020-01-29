@@ -38,14 +38,14 @@ passport.serializeUser(Departments.serializeUser());
 passport.deserializeUser(Departments.deserializeUser());
 
 
-app.get('/home',(req, res,next)=>
+app.get('/viewQuizes',(req, res,next)=>
  {
     Quizzes.find({department_id:req.user._id}, function(err, results){
         if(err)
             console.log(err);
         else
         {
-            res.render("Home",
+            res.render("viewQuizes",
             {
                 quiz:results
             });
@@ -135,7 +135,7 @@ app.get("/login", function(req, res){
 });
 
 app.post("/login", passport.authenticate("local",{
-    successRedirect : "/home",
+    successRedirect : "/viewQuizes",
     failureRedirect : "/login"
 }));
 
