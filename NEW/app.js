@@ -8,6 +8,7 @@ var passport = require('passport'),
 const app = express();
 
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
 
 const adminRoutes = require('./routes/admin');
 const userRoutes = require('./routes/user');
