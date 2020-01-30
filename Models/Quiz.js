@@ -4,7 +4,9 @@ const schema = mongoose.Schema;
 const createQuiz = new schema({
     quizName:{
         type:String,
-        required : true
+        required : true,
+        unique: true
+
     },
     questionCount:Number,
     department_id:{

@@ -89,9 +89,26 @@ app.post('/quiz/createQuestions/:id',(req,res,next)=>{
         Answers.create({
             question_id: result._id,
             correct:req.body.answer
-        }).then(result => {
-            res.redirect('/quiz/createQuestions/'+quiz_id);
         })
+        .then(results=>{
+            Quizzes.findById(req.params.id)
+            .then(quiz => {
+                quiz.questionCount=quiz.questionCount+1;
+                return quiz.save();
+            })
+            .then(result => {
+              console.log(result);
+            })
+        })
+        
+        
+        
+        .then(result => {
+            res.redirect('/quiz/createQuestions/'+req.params.id);
+        })
+    })
+    .catch(err => {
+        res.send("firse error");
     })
    
 })
@@ -103,16 +120,17 @@ app.get('/createQuiz',(req,res,next)=>{
 
 app.post('/createQuiz',(req,res,next)=>{
     Quizzes.create({
-                quizName:req.body.quizName,
-                questionCount:0,
-                department_id:req.user._id
-            })
-            .then(result => {
-               res.redirect('/viewQuizes');   
-            })
-            .catch(err =>{
-                console.log(err);
-            })
+        quizName:req.body.quizName,
+        questionCount:0,
+        department_id:req.user._id
+    })
+    .then(result => {
+       res.redirect('/viewQuizes');   
+    })
+    .catch(err =>{
+        console.log(err);
+    })
+   
 })
 
 app.get('/quiz/deleteQuestion/:id/:quiz_id',(req,res,next)=>{
@@ -129,9 +147,20 @@ app.get('/quiz/deleteQuestion/:id/:quiz_id',(req,res,next)=>{
         }
     })  
     })
+    .then(results=>{
+        Quizzes.findById(quiz_id)
+        .then(quiz => {
+            quiz.questionCount=quiz.questionCount-1;
+            return quiz.save();
+        })
+        .then(result => {
+          console.log(result);
+        })
+    })
+    
     .then(results => {
         console.log(quiz_id);
-         res.redirect('/quiz/'+quiz_id);
+         res.redirect('/quiz/'+req.params.quiz_id);
     })
     .catch(err => {
         console.log(err);
