@@ -1,0 +1,44 @@
+
+<html>
+<head>
+<title>quiz</title>
+    <link rel="stylesheet" type="text/css" href="/css/loginpage.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <header>
+      <br>
+       <nav>
+        <h1><span>QUIZ QUESTIONS</span></h1>
+       <ul>
+         <li><a href="../../viewQuizes"> Home</a></li>
+         <li><a href="../../login">Logout</a></li>
+       </ul>
+     </nav>
+   </header>
+
+<body>
+    <div class="loginbox">
+       
+            <h1> QUIZ QUESTION</h1>
+            <form action="/quiz/createQuestions/<%=id%>" method="POST">
+                <br>
+			  <p>  <input type ="text" name="question" placeholder="Question" required=" "></p>
+			  <br><br>
+              <p>  <input type="text" name="option1" placeholder="Option 1" required=" "></p>
+                <p><input type="text" name="option2" placeholder="Option 2" required=" "></p>
+                <p><input type="text" name="option3" placeholder="Option 3" required=" "></p>
+                <p><input type="text" name="option4" placeholder="Option 4" required=" "></p>
+            
+
+            <label for="Answer  "><b>Answer </b></label> <br>
+			  <input type="number" name="ans" required="Please fill in this field!!" min="1" max="4" placeholder="Option Number"><br>
+			  
+			  <button type="submit" class="button" style="margin-left: 170px; margin-top: 25px; float: left; width:20%;">Next</button>
+              
+			  <br>
+			  </form>
+    </div>
+
+    
+</body>
+</head>
+</html>

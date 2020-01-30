@@ -1,0 +1,155 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(quiz.jpg) no-repeat center center fixed;
+     background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    
+}
+
+.loginbox{
+    width: 750px;
+    height:650px;
+    color:#004d00;
+    top:35%;
+    left: 40%;
+    position: absolute;
+    transform: translate(-30%,-30%);
+    box-sizing: border-box;
+    padding: 70px 100px;
+    box-shadow: 20px 20px 50px #000000;
+
+}
+
+.lloginbox{
+    width: 1500px;
+    height:2000px;
+    color:#004d00;
+    top:10%;
+    left: 40%;
+    position: absolute;
+    transform: translate(-30%,0%);
+    box-sizing: border-box;
+    padding: 70px 100px;
+    box-shadow: 20px 20px 50px #000000;
+
+}
+
+.qloginbox{
+    width: 800px;
+    height:900px;
+    color:#004d00;
+    top:10%;
+    left: 40%;
+    position: absolute;
+    transform: translate(-30%,0%);
+    box-sizing: border-box;
+    padding: 70px 100px;
+    box-shadow: 20px 20px 50px #000000;
+
+}
+
+h1{
+    margin:0;
+    padding:0 0 20px;
+    text-align: center;
+    font-size:22px;
+
+}
+h6{
+    margin:0;
+    padding:0 0 20px;
+    text-align: center;
+    font-size:12px;
+
+}
+
+.loginbox p{
+    margin: 0;
+    padding:0;
+    font-weight: bold;
+    color: #004d00;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+    color: #004d00;
+
+}
+
+
+.loginbox input[type="text"], [type="password"],[type="number"]
+{
+    border: none;
+    border-bottom: 1px solid #004d00;
+    outline: none;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color:#004d00;
+    font-size: 16px;
+}
+
+
+.button {
+    background-color: #008000;
+    border: none;
+    color: white;
+    padding: 14px 14px;
+    text-align: center;
+    text-decoration: none;
+   
+    font-size: 16px;
+    margin: 4px 0;
+    cursor: pointer;
+   
+    width: 100%;
+  }
+
+button:hover {
+  opacity: 0.8;
+}
+
+header{
+    width:100%;
+    height:60px;
+    background-color:#0009; 
+
+}
+ nav span{
+    color:#ffffff;
+    text-align: center;
+   
+    margin-right:1500px;
+    margin-top: 100px;
+    margin-bottom: 5px;
+}
+
+ ul{
+    width: auto;
+    float: right;
+    margin-top: -45px;
+    margin-left: 2px;
+    margin-right: 60px;
+    margin-bottom: 30px;
+}
+
+li{
+    display:inline-block;
+    padding:1px 30px;
+
+}
+a{
+    text-align: center;
+    color:#ffffff;
+    text-decoration:none;
+    font-family:'Open Sans', sans-serif;
+    font-size: 8ww;
+}
+
+a:hover{
+    color:#f0c300;
+    transition: 0.5s;
+}
