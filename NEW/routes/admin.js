@@ -1,10 +1,5 @@
 
-
-
-
 const adminRoutes = require('../Controller/admin');
-
-// webpage to post questions should access these routes
 
 var express = require('express'),
 
@@ -33,21 +28,6 @@ passport.use(new localStrategy(Departments.authenticate()));
 passport.serializeUser(Departments.serializeUser());
 passport.deserializeUser(Departments.deserializeUser());
     
-
-//Importing passport libraries
-
-
-// const adminRoutes = require('./routes/admin');
-
-
-// router.use(adminRoutes);
-
-
-
-//Express-session setup
-
-
-
 
 router.get('/viewQuizes',(req, res,next)=>
  {
@@ -108,7 +88,7 @@ router.post('/quiz/createQuestions/:id',(req,res,next)=>{
                 return quiz.save();
             })
             .then(result => {
-              console.log(result);
+                res.status(200)
             })
         })
         
@@ -119,7 +99,7 @@ router.post('/quiz/createQuestions/:id',(req,res,next)=>{
         })
     })
     .catch(err => {
-        res.send("firse error");
+       console.log(err);
     })
    
 })
@@ -170,12 +150,11 @@ router.get('/quiz/deleteQuestion/:id/:quiz_id',(req,res,next)=>{
             return quiz.save();
         })
         .then(result => {
-          console.log(result);
+            res.status(200)
         })
     })
     
     .then(results => {
-        console.log(quiz_id);
          res.redirect('/admin/quiz/'+req.params.quiz_id);
     })
     .catch(err => {
@@ -197,7 +176,7 @@ router.post('/register',function(req,res){
 		else{
 			passport.authenticate("local")(req,res,function()
 			{
-				res.send("OK");
+				res.status(200)
 			});
 	}}
 	);
