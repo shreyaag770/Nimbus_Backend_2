@@ -1,0 +1,40 @@
+
+
+ <html>
+<head>
+<title>login</title>
+    <link rel="stylesheet" type="text/css" href="css/loginpage.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<header>
+  <br>
+   
+    
+ <nav>
+    <h1><span>QUIZ QUESTIONS</span></h1>
+  
+   <ul>
+     <li><a href="../../viewQuizes"> Home</a></li>
+     <li><a href="../../login">Logout</a></li>
+   </ul>
+ </nav>
+</header>
+    <body>
+    <div class="loginbox">
+            <br><br><br><br>
+            <h1> </h1>
+          
+            <form action="/createQuiz" method="POST">
+                <br>
+                <label for="uname"><b><span>Quiz Name:</span></b></label><br><br>
+                <input type="text" placeholder="Enter QuizName" name="quizName" required="">
+                <br>
+                
+                <button type="submit" class="button" style=" margin-top: 25px; float: left; width:30%";>Submit</button>
+               
+            </form>
+    </div>
+
+    
+</body>
+</head>
+</html>

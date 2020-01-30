@@ -1,0 +1,49 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View Quiz</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/loginpage.css">
+  <header>
+    <br>
+     
+      
+   <nav>
+      <h1><span>QUIZ QUESTIONS</span></h1>
+    
+     <ul>
+       <li><a href="../../viewQuizes"> Home</a></li>
+       <li><a href="../../login">Logout</a></li>
+       
+     </ul>
+   </nav>
+ </header>
+</head>
+<body >
+  <div class="qloginbox"> 
+  	
+   
+    <form>
+      
+      <a href="createQuiz" class="button" style="margin-left:160px; width:30%; margin-top: -20px; float: left;">Create Quiz</a>
+      <br>
+      <br>
+      <br>
+
+      <% for (var i =0; i <quiz.length;  i++ ) { %>
+        
+        <a href="quiz/<%=quiz[i]._id%>" class="button" style="margin-left:50px; width:30%; float: left;"><%=quiz[i].quizName%></a>
+      
+      
+      <% } %>
+
+
+      
+    </form>
+  </div>
+</body>
+</html>
+
