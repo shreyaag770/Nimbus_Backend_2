@@ -5,12 +5,11 @@ body{
      background-size: cover;
     background-position: center;
     font-family: sans-serif;
-    
 }
 
 .loginbox{
     width: 750px;
-    height:650px;
+    height:700px;
     color:#004d00;
     top:35%;
     left: 40%;
@@ -115,10 +114,10 @@ button:hover {
 header{
     width:100%;
     height:60px;
-    background-color:#0009; 
+    /* background-color:#0009;  */
 
 }
- nav span{
+ /* nav span{
     color:#ffffff;
     text-align: center;
    
@@ -133,7 +132,7 @@ header{
     margin-top: -45px;
     margin-left: 2px;
     margin-right: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 30px;    
 }
 
 li{
@@ -152,4 +151,4 @@ a{
 a:hover{
     color:#f0c300;
     transition: 0.5s;
-}
+} */
